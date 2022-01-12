@@ -31,6 +31,13 @@ wait (){
     echo "sleep"  $1 " seconds"
     sleep $1
 }
+
+check_container (){
+    container=$1
+    # echo ${container}    
+    check_empty "container name" ${container}
+    echo 0
+}
 #echo "Config file: " $1
 check_empty  "Config File" $1
 
@@ -46,6 +53,14 @@ echo "START_SCRIPT is:" ${START_SCRIPT}
 
 while [ 1 ]; do
     wait ${INTERVAL}
+    RET=$(check_container "${CONTAINER_NAME}")
+    #RET=$?
+    echo "RET: " ${RET}
+    if [ ${RET} -ne 0 ]; then
+        echo  "return one" ${RET}
+	continue
+    fi
+
 done
 
 
