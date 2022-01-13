@@ -72,13 +72,63 @@ create_node1 () {
     create_loc /mnt/disk/chainnode
     create_script runtestnode1.sh
 }
+create_node2 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/disk/chainnode
+    create_script runtestnode2.sh
+}
+
 create_node3 () {
     create_interval
     create_container ruffchain1
     create_loc /mnt/disk/chainnode
     create_script runtestnode3.sh
 }
+create_node4 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/shepherd4-disk2/chainnode2/chainnode
+    create_script runtestnode4.sh
+}
+create_node5 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/disk/chainnode
+    create_script runtestnode5.sh
+}
+create_node6 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/disk/chainnode
+    create_script runtestnode6.sh
+}
+create_node7 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/disk/chainnode
+    create_script runtestnode7.sh
+}
+create_node8 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/disk/chainnode
+    create_script runtestnode8.sh
+}
+create_node9 () {
+    create_interval
+    create_container ruffchain1
+    create_loc /mnt/disk/chainnode
+    create_script runtestnode9.sh
+}
+
 create_peer1 () {
+    create_interval
+    create_container ruffchainpeer1
+    create_loc /mnt/disk/chainnode
+    create_script runtestpeer.sh
+}
+create_peer2 () {
     create_interval
     create_container ruffchainpeer1
     create_loc /mnt/disk/chainnode
@@ -89,7 +139,26 @@ if [ $1 == "peer1" ]; then
     echo "reset peer1"
     create_peer1
     echo "reset done"
-
+elif [ $1 == "peer2" ]; then
+    create_peer2
+elif [ $1 == "node1" ]; then
+    create_node1
+elif [ $1 == "node2" ]; then
+    create_node2
+elif [ $1 == "node3" ]; then
+    create_node3
+elif [ $1 == "node4" ]; then
+    create_node4
+elif [ $1 == "node5" ]; then
+    create_node5
+elif [ $1 == "node6" ]; then
+    create_node6
+elif [ $1 == "node7" ]; then
+    create_node7
+elif [ $1 == "node8" ]; then
+    create_node8
+elif [ $1 == "node9" ]; then
+    create_node9
 else
     echo "unknown type"
 fi
