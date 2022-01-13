@@ -5,7 +5,7 @@ Requires=docker.service
 
 [Service]
 WorkingDirectory=/home/ruff/chainmon
-ExecStart=/home/ruff/chainmon/chainmon.sh chainmon.conf
+ExecStart=/home/ruff/chainmon/chainmon.sh /home/ruff/chainmon/chainmon.conf
 StandardOutput=syslog
 StandardError=syslog
 
